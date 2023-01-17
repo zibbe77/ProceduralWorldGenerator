@@ -30,11 +30,12 @@ public class ChunkCreater : MonoBehaviour
 
     void MakeTerrain()
     {
-
+        WorldData.CreatWorld(worldSize, worldHeighet, worldScale, terrainscale);
     }
 
     void MakeCunk()
     {
+        Instantiate(prefab, new Vector3(0, 0, 0), Quaternion.identity);
 
     }
 }

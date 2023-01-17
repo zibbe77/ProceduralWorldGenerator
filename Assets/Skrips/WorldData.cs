@@ -10,12 +10,10 @@ public static class WorldData
         get { return data; }
     }
 
-    public static int[,,] CreatWorld(int size, int height, float scale, float terrainscale)
+    public static void CreatWorld(int size, int height, float scale, float terrainscale)
     {
         float[,] PerlinNoiseMap = MakePerlinNoise(size, scale);
         data = MakeWorldTerrinData(PerlinNoiseMap, size, height, scale, terrainscale);
-
-        return data;
     }
 
     public static float[,] MakePerlinNoise(int size, float scale)

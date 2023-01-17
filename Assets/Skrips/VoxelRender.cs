@@ -35,7 +35,7 @@ public class VoxelRender : MonoBehaviour
             for (int z = 0; z < data.Depth; z++)
             {
                 for (int y = 0; y < data.Hight; y++)
-                {             
+                {
                     if (data.GetCell(x, z, y) == 0)
                     {
                         continue;
