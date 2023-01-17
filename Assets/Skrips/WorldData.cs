@@ -4,11 +4,16 @@ using UnityEngine;
 
 public static class WorldData
 {
+    static int[,,] data;
+    public static int[,,] GetData
+    {
+        get { return data; }
+    }
 
     public static int[,,] CreatWorld(int size, int height, float scale, float terrainscale)
     {
         float[,] PerlinNoiseMap = MakePerlinNoise(size, scale);
-        int[,,] data = MakeWorldTerrinData(PerlinNoiseMap, size, height, scale, terrainscale);
+        data = MakeWorldTerrinData(PerlinNoiseMap, size, height, scale, terrainscale);
 
         return data;
     }

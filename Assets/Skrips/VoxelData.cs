@@ -24,9 +24,9 @@ public class VoxelData
         return data[x, z, y];
     }
 
-    public VoxelData(int worldSize, int worldHeighet, float worldScale, float terrainscale)
+    public VoxelData()
     {
-        data = WorldData.CreatWorld(worldSize, worldHeighet, worldScale, terrainscale);
+        data = WorldData.GetData;
     }
 
     public int GetNaighbor(int x, int z, int y, Direction dir)

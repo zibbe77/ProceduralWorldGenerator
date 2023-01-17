@@ -9,12 +9,6 @@ public class VoxelRender : MonoBehaviour
     List<Vector3> vertices;
     List<int> triangles;
 
-    //terring instälningar
-    public int worldSize;
-    public int worldHeighet;
-    public float worldScale;
-    public float terrainscale;
-
     //cube instälningar
     public float scale = 1f;
     float adjScale;
@@ -27,7 +21,7 @@ public class VoxelRender : MonoBehaviour
 
     void Start()
     {
-        GenerateVoxelMesh(new VoxelData(worldSize, worldHeighet, worldScale, terrainscale));
+        GenerateVoxelMesh(new VoxelData());
         UppdateMesh();
     }
 
@@ -41,7 +35,7 @@ public class VoxelRender : MonoBehaviour
             for (int z = 0; z < data.Depth; z++)
             {
                 for (int y = 0; y < data.Hight; y++)
-                {
+                {             
                     if (data.GetCell(x, z, y) == 0)
                     {
                         continue;
