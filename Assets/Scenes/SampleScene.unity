@@ -332,10 +332,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 5219774607503680432, guid: 3bdd6c4891c4f1c4b909f2a50311b9e4, type: 3}
   chunks: 3
-  worldSize: 3
-  worldHeighet: 3
-  worldScale: 0.1
-  terrainscale: 3
+  worldSize: 30
+  worldHeighet: 30
+  worldScale: 0.01
+  terrainscale: 20
 --- !u!4 &2040103390
 Transform:
   m_ObjectHideFlags: 0

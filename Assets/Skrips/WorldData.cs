@@ -1,15 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public static class WorldData
 {
-    public static int chunkCount;
+    public static int chunkCountX;
+    public static int chunkCountZ;
+
     public static int wChunks;
     public static int wSize;
     public static int wHeight;
-
-    public static Vector2[,] Chunkid = new Vector2[wChunks, wChunks];
 
     static int[,,] data;
     public static int[,,] GetData
@@ -33,7 +31,6 @@ public static class WorldData
 
         float[,] PerlinNoiseMap = MakePerlinNoise(size, scale);
         MakeWorldTerrinData(PerlinNoiseMap, size, height, scale, terrainscale);
-        ChunkId();
     }
 
     public static float[,] MakePerlinNoise(int size, float scale)
@@ -86,24 +83,22 @@ public static class WorldData
             {
                 for (int y = 0; y < wHeight; y++)
                 {
-                    splitData[x, z, y] = data[x, z, y];
+                    splitData[x, z, y] = data[x + (chunkCountX * wSize), z + (chunkCountZ * wSize), y];
+                    Debug.Log(new Vector2(x + (chunkCountX * wSize), z + (chunkCountZ * wSize)));
                 }
             }
         }
 
+        //orjenterar datan så den lägger utt den rätt
+        chunkCountX++;
+        if (chunkCountX >= wSize)
+        {
+            chunkCountX = 0;
+            chunkCountZ++;
+        }
 
-        chunkCount++;
         return splitData;
     }
-
-    public static void ChunkId()
-    {
-        for (int x = 0; x < wChunks; x++)
-        {
-            for (int z = 0; z < wChunks; z++)
-            {
-                Chunkid[x, z] = new Vector2(x * wSize, z * wSize);
-            }
-        }
-    }
 }
+
+
