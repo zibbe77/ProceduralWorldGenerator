@@ -5,8 +5,11 @@ using UnityEngine;
 
 public class ChunkCreater : MonoBehaviour
 {
-    public int chunks;
+
     public GameObject prefab;
+
+    //chunks
+    public int chunks;
 
     //terring instälningar
     public int worldSize;
@@ -30,12 +33,17 @@ public class ChunkCreater : MonoBehaviour
 
     void MakeTerrain()
     {
-        WorldData.CreatWorld(worldSize, worldHeighet, worldScale, terrainscale);
+        WorldData.CreatWorld(worldSize, worldHeighet, worldScale, terrainscale, chunks);
     }
 
     void MakeCunk()
     {
-        Instantiate(prefab, new Vector3(0, 0, 0), Quaternion.identity);
-
+        for (int x = 0; x < chunks; x++)
+        {
+            for (int z = 0; z < chunks; z++)
+            {
+                Instantiate(prefab, new Vector3(x * worldSize, 0, z * worldSize), Quaternion.identity);
+            }
+        }
     }
 }
