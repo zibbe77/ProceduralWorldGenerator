@@ -84,7 +84,7 @@ public static class WorldData
                 for (int y = 0; y < wHeight; y++)
                 {
                     splitData[x, z, y] = data[x + (chunkCountX * wSize), z + (chunkCountZ * wSize), y];
-                    Debug.Log(new Vector2(x + (chunkCountX * wSize), z + (chunkCountZ * wSize)));
+                    //Debug.Log(new Vector2(x + (chunkCountX * wSize), z + (chunkCountZ * wSize)));
                 }
             }
         }
