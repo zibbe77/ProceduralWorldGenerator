@@ -21,11 +21,6 @@ public class ChunkCreater : MonoBehaviour
 
     //skapa datan få den att hänga ihop
 
-    void Awake()
-    {
-
-    }
-
     void Start()
     {
         MakeTerrain();
@@ -39,13 +34,18 @@ public class ChunkCreater : MonoBehaviour
 
     void MakeCunk()
     {
-        for (int x = 0; x < chunks; x++)
+        //numerarar cunksen
+        int name = 1;
+
+        //plaserar utt dom    
+        for (int z = 0; z < chunks; z++)
         {
-            for (int z = 0; z < chunks; z++)
+            for (int x = 0; x < chunks; x++)
             {
                 GameObject ChunksObj;
                 ChunksObj = Instantiate(prefab, new Vector3(x * worldSize, 0, z * worldSize), Quaternion.identity);
-                ChunksObj.name = (x + z).ToString();
+                ChunksObj.name = (name).ToString();
+                name++;
             }
         }
     }
