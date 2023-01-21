@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 
 public class ChunkCreater : MonoBehaviour
@@ -42,7 +43,9 @@ public class ChunkCreater : MonoBehaviour
         {
             for (int z = 0; z < chunks; z++)
             {
-                Instantiate(prefab, new Vector3(x * worldSize, 0, z * worldSize), Quaternion.identity);
+                GameObject ChunksObj;
+                ChunksObj = Instantiate(prefab, new Vector3(x * worldSize, 0, z * worldSize), Quaternion.identity);
+                ChunksObj.name = (x + z).ToString();
             }
         }
     }

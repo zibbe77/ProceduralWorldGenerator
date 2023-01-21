@@ -75,6 +75,7 @@ public static class WorldData
     //splitrar terring data på flera chunks
     public static int[,,] Dataspliter()
     {
+        Debug.Log($"start {chunkCountX * wSize}");
 
         int[,,] splitData = new int[wSize, wSize, wHeight];
         for (int x = 0; x < wSize; x++)
@@ -89,9 +90,12 @@ public static class WorldData
             }
         }
 
+        Debug.Log($"last {(chunkCountX * wSize) + wSize}");
+
         //orjenterar datan så den lägger utt den rätt
+
         chunkCountX++;
-        if (chunkCountX >= wSize)
+        if (chunkCountX >= wChunks)
         {
             chunkCountX = 0;
             chunkCountZ++;
