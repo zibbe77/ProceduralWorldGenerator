@@ -20,18 +20,20 @@ public class ChunkCreater : MonoBehaviour
 
 
     //skapa datan få den att hänga ihop
-
+    //kontrol metod (fördelar upgifter till olika metoder)
     void Start()
     {
         MakeTerrain();
         MakeCunk();
     }
 
+    //Skapar ett data sätt för värden 
     void MakeTerrain()
     {
         WorldData.CreatWorld(worldSize, worldHeighet, worldScale, terrainscale, chunks);
     }
 
+    //seperarar datan i chunks för att unity har en gräns på vertesis i en mesh
     void MakeCunk()
     {
         //numerarar cunksen

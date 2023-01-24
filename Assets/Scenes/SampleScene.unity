@@ -334,8 +334,8 @@ MonoBehaviour:
   chunks: 10
   worldSize: 30
   worldHeighet: 30
-  worldScale: 0.01
-  terrainscale: 25
+  worldScale: 2
+  terrainscale: 28
 --- !u!4 &2040103390
 Transform:
   m_ObjectHideFlags: 0

@@ -36,6 +36,8 @@ public static class CubeMeshData
         }
         return fv;
     }
+
+    // en overload som använder Direction istället för dir 
     public static Vector3[] FaceVertices(Direction dir, float scale, Vector3 pos)
     {
         return FaceVertices((int)dir, scale, pos);

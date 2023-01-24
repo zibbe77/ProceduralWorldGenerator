@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class VoxelData
 {
+    //sparar datan
     int[,,] data;
 
+    //returnar storleken på data sättet 
     public int Width
     {
         get { return data.GetLength(0); }
@@ -19,16 +21,19 @@ public class VoxelData
         get { return data.GetLength(2); }
     }
 
+    //skafare en cell av datan 
     public int GetCell(int x, int z, int y)
     {
         return data[x, z, y];
     }
 
+    //skaffare en chunk som den ska rita ut 
     public VoxelData()
     {
         data = WorldData.GetData;
     }
 
+    //kollar om grannen fins eller inte utan att crash systemt baserat på hål
     public int GetNaighbor(int x, int z, int y, Direction dir)
     {
         DataCoordinate checkOffset = offset[(int)dir];
@@ -44,6 +49,7 @@ public class VoxelData
         }
     }
 
+    //sparar offsets som ska kollas 
     struct DataCoordinate
     {
         public int x;
@@ -68,6 +74,7 @@ public class VoxelData
     };
 }
 
+//sparar hål för att lättare kunna arbeta med datan 
 public enum Direction
 {
     North,

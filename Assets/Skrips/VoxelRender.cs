@@ -13,18 +13,21 @@ public class VoxelRender : MonoBehaviour
     public float scale = 1f;
     float adjScale;
 
+    //fixar basic saker
     void Awake()
     {
         mesh = GetComponent<MeshFilter>().mesh;
         adjScale = scale * 0.5f;
     }
 
+    //kontrol metod (fördelar upgifter till olika metoder)
     void Start()
     {
         GenerateVoxelMesh(new VoxelData());
         UppdateMesh();
     }
 
+    //generatat en voxel mesh
     void GenerateVoxelMesh(VoxelData data)
     {
         vertices = new List<Vector3>();
@@ -59,6 +62,7 @@ public class VoxelRender : MonoBehaviour
         }
     }
 
+    //skapar en rikning av cuben 
     void MakeFace(Direction dir, float facescale, Vector3 facePos)
     {
         vertices.AddRange(CubeMeshData.FaceVertices(dir, facescale, facePos));
@@ -73,6 +77,7 @@ public class VoxelRender : MonoBehaviour
         triangles.Add(vCount - 4 + 3);
     }
 
+    //uptaterar meshen och städare den om det skulle finas skräp kvar. 
     void UppdateMesh()
     {
         mesh.Clear();
